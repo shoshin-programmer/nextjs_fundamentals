@@ -1,19 +1,22 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Head>
         <title>Next JS Fundamentals</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className="main">
         <h1>Index Page</h1>
+        <small>
+          Without the getInitialProps() the page is automatically created into a
+          static HTML.
+        </small>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="footer">
         <div>
           <a
             href="https://www.mark-atienza.com/"
