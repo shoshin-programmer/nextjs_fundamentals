@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import posts from "../../posts.json";
 
-export default () => {
+const BlogPost = () => {
   const router = useRouter();
 
   const post = posts[router.query.id];
@@ -24,3 +24,5 @@ export default () => {
     </div>
   );
 };
+
+export default BlogPost;
