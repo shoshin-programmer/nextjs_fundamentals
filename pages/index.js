@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
           Without the getInitialProps() the page is automatically created into a
           static HTML.
         </small>
+        <Link href="/blog">
+          <p>Blog Link</p>
+        </Link>
       </main>
 
       <footer className="footer">
