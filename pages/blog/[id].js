@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import posts from "../../posts.json";
+import Link from "next/link";
+import posts from "../../posts";
 
 const BlogPost = () => {
   const router = useRouter();
@@ -16,11 +17,15 @@ const BlogPost = () => {
           </>
         ) : (
           <>
-            <h2>Preloading</h2>
-            <small>This will show while the data is being fetched.</small>
+            <h2>Preloading or missing data.</h2>
+            <small>
+              This will show while the data is being fetched or when there is no
+              data.
+            </small>
           </>
         )}
       </main>
+      <Link href="/blog">Blog - Home</Link>
     </div>
   );
 };
