@@ -2,39 +2,33 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import posts from "../../posts";
 
-const BlogPost = () => {
+const BlogPost = ({ post }) => {
   const router = useRouter();
-
-  const post = posts[router.query.id];
 
   return (
     <div className="container">
-      <main className="main">
-        {post ? (
-          <>
-            <h2>{post.title}</h2>
-            <small>
-              {post.content.split("|").map((str) => (
-                <>
-                  {str}
-                  <br />
-                </>
-              ))}
-            </small>
-          </>
-        ) : (
-          <>
-            <h2>Preloading or missing data.</h2>
-            <small>
-              This will show while the data is being fetched or when there is no
-              data.
-            </small>
-          </>
-        )}
+      <main className="main" style={{ textAlign: "left" }}>
+        <>
+          <h2>{post.title}</h2>
+          <small>
+            {post.content.split("|").map((str, idx) => (
+              <div key={idx}>
+                {str}
+                <br />
+              </div>
+            ))}
+          </small>
+        </>
       </main>
       <Link href="/blog">Blog - Home</Link>
     </div>
   );
+};
+
+BlogPost.getInitialProps = async ({ query }) => {
+  return {
+    post: posts[query.id],
+  };
 };
 
 export default BlogPost;
