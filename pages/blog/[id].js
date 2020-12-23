@@ -13,7 +13,14 @@ const BlogPost = () => {
         {post ? (
           <>
             <h2>{post.title}</h2>
-            <small>{post.content}</small>
+            <small>
+              {post.content.split("|").map((str) => (
+                <>
+                  {str}
+                  <br />
+                </>
+              ))}
+            </small>
           </>
         ) : (
           <>
