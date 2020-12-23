@@ -1,13 +1,14 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import posts from "../../posts";
+import BlogLayout from "../../components/layouts/bloglayout";
 
 const BlogPost = ({ post }) => {
   const router = useRouter();
 
   return (
-    <div className="container">
-      <main className="main" style={{ textAlign: "left" }}>
+    <BlogLayout
+      content={
         <>
           <h2>{post.title}</h2>
           <small>
@@ -19,9 +20,8 @@ const BlogPost = ({ post }) => {
             ))}
           </small>
         </>
-      </main>
-      <Link href="/blog">Blog - Home</Link>
-    </div>
+      }
+    />
   );
 };
 
